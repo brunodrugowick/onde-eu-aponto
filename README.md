@@ -11,11 +11,11 @@ assignee = USUÁRIO and (description ~ "BUSCA" OR summary ~ "BUSCA") and statusC
 # Executando
 
 ```
-java -jar onde-eu-aponto.jar /
---jira.baseUrl=https://seu-jira.com/rest /
---jira.username=USUARIO /
---jira.password=SENHA /
---jira.maxResults=20 /
+java -jar onde-eu-aponto.jar \
+--jira.baseUrl=https://seu-jira.com/rest \
+--jira.username=USUARIO \
+--jira.password=SENHA \
+--jira.maxResults=20 \
 --server.port=8090
 ```
 
