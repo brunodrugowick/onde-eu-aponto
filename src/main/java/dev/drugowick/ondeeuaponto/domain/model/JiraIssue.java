@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * This could be used to persist issue information to a database
+ */
 @Entity
 @Getter
 @Setter

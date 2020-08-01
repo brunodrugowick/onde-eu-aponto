@@ -1,4 +1,4 @@
-package dev.drugowick.ondeeuaponto.domain.client.jira;
+package dev.drugowick.ondeeuaponto.domain.service.client.jira;
 
 import lombok.Getter;
 import lombok.Setter;
