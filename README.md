@@ -16,9 +16,9 @@ Disponibilize as seguintes propriedades (no Spring há diversas formas de fazer 
 server.port=8090
 
 app.jiraUserStrategy=parse
-jira.baseUrl=
-jira.integrationUsername=
-jira.integrationPassword=
+jira.baseUrl=https://seu-jira.com/rest
+jira.integrationUsername=username
+jira.integrationPassword=password
 jira.maxResults=15
 # Consulta padrão para quando nenhum termo é inserido
 jira.defaultQuery=assignee = :twikiName and statusCategory not in (Done)
@@ -32,7 +32,11 @@ spring.security.oauth2.client.registration.google.client-id=
 spring.security.oauth2.client.registration.google.client-secret=
 ```
 
-Acesse em `localhost:8090`.
+E execute:
+
+```
+java -jar ondeeuaponto.jar
+```
 
 # Estado atual
 
