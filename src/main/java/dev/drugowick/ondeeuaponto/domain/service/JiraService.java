@@ -19,6 +19,7 @@ public class JiraService {
     private final JiraUser jiraUser;
     private final JiraClient jiraClient;
 
+    // TODO proper properties handling
     @Value("${jira.maxResults:15}") private int jiraMaxResults;
     @Value("${jira.baseUrl}") private String jiraBaseUrl;
     @Value("${jira.defaultQuery:'assignee = :twikiName and statusCategory not in (Done)'}") private String jiraDefaultQuery;
@@ -32,7 +33,7 @@ public class JiraService {
         if (query.equals("")) jql = jiraDefaultQuery;
         else jql = "assignee = :twikiName and (description ~ \"" + query + "\" OR summary ~ \"" + query + "\")" +
                 "and statusCategory not in (Done)";
-        // TODO robust variable replace
+        // TODO robust variable replacement
         if (jql.contains(":")) jql = jql.replaceAll(":\\w+", twikiName);
 
         JiraIssuesModel jiraIssuesModel = jiraClient.executeJql(jql, maxResults);

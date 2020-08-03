@@ -10,19 +10,32 @@ assignee = USUÁRIO and (description ~ "BUSCA" OR summary ~ "BUSCA") and statusC
 
 # Executando
 
-```
-java -jar onde-eu-aponto.jar \
---jira.baseUrl=https://seu-jira.com/rest \
---jira.username=USUARIO \
---jira.password=SENHA \
---jira.maxResults=20 \
---server.port=8090
+Disponibilize as seguintes propriedades (no Spring há diversas formas de fazer isso):
+
+```properties
+server.port=8090
+
+app.jiraUserStrategy=parse
+jira.baseUrl=
+jira.integrationUsername=
+jira.integrationPassword=
+jira.maxResults=15
+# Consulta padrão para quando nenhum termo é inserido
+jira.defaultQuery=assignee = :twikiName and statusCategory not in (Done)
+
+# Params for the REST connection with Jira
+feign.client.config.jira.connect-timeout=2000
+feign.client.config.jira.read-timeout=3000
+
+# Your client information provided by Google
+spring.security.oauth2.client.registration.google.client-id=
+spring.security.oauth2.client.registration.google.client-secret=
 ```
 
 Acesse em `localhost:8090`.
 
 # Estado atual
 
-Há uma lista de issues registrada localmente. Essas issues são as fixas de todos os Chapters. A busca atualmente é feita localmente e no Jira, portanto podem haver resultados duplicados.
+O app basicamente replica a função de busca existente no Jira, com passos extras e mais limitado! Hahahaha.
 
-Tem muitos pequenos probleminhas, por enquanto só gastei 6 horas nesse projeto inteiro. Colabora comigo se quiser! =)
+Mas foi divertido implementar...
